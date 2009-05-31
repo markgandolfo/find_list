@@ -11,7 +11,7 @@ module FindList
     def self.list(options={}) #:doc
       id_column = options[:id].blank? ? :id : options.delete(:id).to_sym
       display_column = options[:display].blank? ? :name : options.delete(:display).to_sym
-      find(:all, options).map { |x| [ x[id_column].to_s + ': ' + x[display_column], x[id_column] ] }
+      find(:all, options).map { |x| [ x[id_column].to_s + ': ' + x[display_column].to_s, x[id_column] ] }
     end
   end
 end
