@@ -9,8 +9,8 @@ module FindList
     # User.list( :id => 'unique_field', :display => 'title')
     # 
     def self.list(options={}) #:doc
-      options[:id].blank? ? id_column = :id : id_column = options.delete(:id).to_sym
-      options[:display].blank? ? display_column = :name : display_column = options.delete(:display).to_sym
+      id_column = options[:id].blank? ? :id : options.delete(:id).to_sym
+      display_column = options[:display].blank? ? :name : options.delete(:display).to_sym
       find(:all, options).map { |x| [ x[id_column].to_s + ': ' + x[display_column], x[id_column] ] }
     end
   end
