@@ -11,6 +11,8 @@ require 'spec/rake/spectask'
 desc 'Default: run unit tests.'
 task :default => :spec
 
+desc 'Run the specs, not tests'
+task :test => :spec
 desc "Run the specs under spec"
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList['spec/**/*_spec.rb']
